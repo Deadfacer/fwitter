@@ -11,7 +11,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Home</a>
+      <a class="navbar-brand" href="#">"F"witter</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -39,9 +39,9 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+        <li><a href="#">Home</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sources <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
@@ -68,17 +68,22 @@
 	<title>Week 1</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   </head>
-  <body> 
+  <body>
     <div class="container">
-    	<% @tweets.each do |tweet| %>
-    	<h1><%=tweet.user%> - <%=tweet.message %></h1>
-		<% end %>
+      <h1>Welcome to Fwitter!</h1>
 
-		<form action="/tweets" method="post">
-			User: <input type="text" name="user">
-			Message: <input typer="text" name="message">
-			<input type="submit">
-		</form>
+      <h3>Fweets</h3>
+      <% @tweets.each do |tweet| %>
+        <p><strong><%=tweet.user.username %></strong> - <%= tweet.message %></p>
+      <% end %>
+
+      <h3>Add a Fweet</h3>
+      <form action="/tweets" method="POST">
+        <input type="hidden" name="user_id" value=<%= session[:user_id] %>> 
+
+        Message: <input class="form-control" type="text" name="message">
+        <input type="submit" class="btn btn-default">
+      </form>
 
     </div>
   </body>

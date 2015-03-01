@@ -1,0 +1,19 @@
+  <head>
+	<title>Week 1</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  </head>
+  <body> 
+    <div class="container">
+    	<% @users.each do |user| %>
+    	<h1><%=users.users%> - <%=users.username %> - <%=users.email %> - <%=users.age %> - <%=users.image %></h1>
+		<% end %>
+
+		<form action="/tweets" method="post">
+			User: <input type="text" name="user">
+			Message: <input typer="text" name="message">
+			<input type="submit">
+		</form>
+
+    </div>
+  </body>
+</html>
